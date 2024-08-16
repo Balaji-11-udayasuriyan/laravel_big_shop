@@ -43,8 +43,8 @@
      <!-- Include the daily best sells partial -->
      @include('frontend.slider.daily_best_sells.type1')
 
-     <!-- Include the deal of the day partial
-     @include('frontend.slider.deal_of_the_day.type1') -->
+     <!-- Include the deal of the day partial -->
+     @include('frontend.slider.deal_of_the_day.type1')
 
     <!-- Include the Search partial -->
     <!-- @include('frontend.layout.search') -->
