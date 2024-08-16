@@ -14,11 +14,22 @@
 </head>
 <body>
 
+    <!-- Include the model partial -->
+    @include('frontend.model.type1')
+
+
     <!-- Include the Header partial -->
     @include('frontend.layout.header')
 
     <!-- Include the Topbar partial -->
     @include('frontend.layout.topbar')
+
+    <main class="main">
+    
+    <!-- Include the slider partial -->
+    @include('frontend.slider.type1')
+
+    </main>
 
     <!-- Include the Search partial -->
     <!-- @include('frontend.layout.search') -->
