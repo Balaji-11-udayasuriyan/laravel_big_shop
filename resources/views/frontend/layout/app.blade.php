@@ -31,6 +31,9 @@
 
     </main>
 
+    <!-- Include the feature categories partial -->
+    @include('frontend.slider.feature_categories.type1')
+
     <!-- Include the Search partial -->
     <!-- @include('frontend.layout.search') -->
 
