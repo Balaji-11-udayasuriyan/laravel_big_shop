@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         @yield('title', 'Default Title')
     </title>
+
    <!-- Favicon -->
    <link rel="shortcut icon" type="image/x-icon" href="frontend/imgs/theme/favicon.svg" />
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="frontend/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="frontend/css/main.css?v=5.3" />
+
 </head>
+
 <body>
 
     <!-- Include the model partial -->
@@ -23,6 +29,8 @@
 
     <!-- Include the Topbar partial -->
     @include('frontend.layout.topbar')
+
+    <!-- slider -->
 
     <main class="main">
     
@@ -52,6 +60,7 @@
     <section class="section-padding mb-30">            
             <div class="container">
                 <div class="row">
+
                     <!-- Include the top selling partial -->
                      @include('frontend.slider.top_selling.type1')
 
