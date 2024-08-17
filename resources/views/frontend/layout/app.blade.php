@@ -54,9 +54,14 @@
                 <div class="row">
                     <!-- Include the top selling partial -->
                      @include('frontend.slider.top_selling.type1')
+
+                     <!-- Include the trending products partial -->
+                     @include('frontend.slider.trending_products.type1')
                 </div>
             </div>
     </section>
+
+    
 
     @yield('content')
 
