@@ -34,60 +34,60 @@
 
     <main class="main">
 
-    @if(Request::is('login'))
+        @if(Request::is('login'))
 
-        @yield('content')
+            @yield('content')
 
-    @if (Request::is('/'))
+        @elseif(Request::is('/'))
 
     
     
-    <!-- Include the slider partial -->
-    @include('frontend.slider.type1')
+            <!-- Include the slider partial -->
+            @include('frontend.slider.type1')
 
 
-    <!-- Include the feature categories partial -->
-    @include('frontend.slider.feature_categories.type1')
+            <!-- Include the feature categories partial -->
+            @include('frontend.slider.feature_categories.type1')
 
-     <!-- Include the banner partial -->
-     @include('frontend.slider.banner.type1')
+            <!-- Include the banner partial -->
+            @include('frontend.slider.banner.type1')
 
-     <!-- Include the popular product partial -->
-     @include('frontend.slider.popular_product.type1')
+            <!-- Include the popular product partial -->
+            @include('frontend.slider.popular_product.type1')
 
-     <!-- Include the daily best sells partial -->
-     @include('frontend.slider.daily_best_sells.type1')
+            <!-- Include the daily best sells partial -->
+            @include('frontend.slider.daily_best_sells.type1')
 
-     <!-- Include the deal of the day partial -->
-     @include('frontend.slider.deal_of_the_day.type1')
+            <!-- Include the deal of the day partial -->
+            @include('frontend.slider.deal_of_the_day.type1')
 
-    <!-- Include the Search partial -->
-    <!-- @include('frontend.layout.search') -->
+            <!-- Include the Search partial -->
+            <!-- @include('frontend.layout.search') -->
 
-    <section class="section-padding mb-30">            
-            <div class="container">
-                <div class="row">
+            <section class="section-padding mb-30">            
+                    <div class="container">
+                        <div class="row">
 
-                    <!-- Include the top selling partial -->
-                     @include('frontend.slider.top_selling.type1')
+                            <!-- Include the top selling partial -->
+                            @include('frontend.slider.top_selling.type1')
 
-                    <!-- Include the trending products partial -->
-                    @include('frontend.slider.trending_products.type1')
+                            <!-- Include the trending products partial -->
+                            @include('frontend.slider.trending_products.type1')
 
-                     <!-- Include the recently_added slider partial -->
-                     @include('frontend.slider.recently_added.type1')
+                            <!-- Include the recently_added slider partial -->
+                            @include('frontend.slider.recently_added.type1')
 
-                     <!-- Include the top rated  slider partial -->
-                     @include('frontend.slider.top_rated.type1')
+                            <!-- Include the top rated  slider partial -->
+                            @include('frontend.slider.top_rated.type1')
 
-                </div>
-            </div>
-    </section>
-   @endif
-</main>
+                        </div>
+                    </div>
+            </section>
+        @endif
+   </main>
     
 
-    @yield('content')
+    <!-- @yield('content') -->
 
     <!-- Include the Footer partial -->
     @include('frontend.layout.footer')
