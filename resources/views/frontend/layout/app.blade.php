@@ -49,6 +49,15 @@
     <!-- Include the Search partial -->
     <!-- @include('frontend.layout.search') -->
 
+    <section class="section-padding mb-30">            
+            <div class="container">
+                <div class="row">
+                    <!-- Include the top selling partial -->
+                     @include('frontend.slider.top_selling.type1')
+                </div>
+            </div>
+    </section>
+
     @yield('content')
 
     <!-- Include the Footer partial -->
