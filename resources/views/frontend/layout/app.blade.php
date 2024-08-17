@@ -55,8 +55,8 @@
                     <!-- Include the top selling partial -->
                      @include('frontend.slider.top_selling.type1')
 
-                     <!-- Include the trending products partial -->
-                     @include('frontend.slider.trending_products.type1')
+                    <!-- Include the trending products partial -->
+                    @include('frontend.slider.trending_products.type1')
 
                      <!-- Include the recently_added slider partial -->
                      @include('frontend.slider.recently_added.type1')
