@@ -33,11 +33,18 @@
     <!-- slider -->
 
     <main class="main">
+
+    @if(Request::is('login'))
+
+        @yield('content')
+
+    @if (Request::is('/'))
+
+    
     
     <!-- Include the slider partial -->
     @include('frontend.slider.type1')
 
-    </main>
 
     <!-- Include the feature categories partial -->
     @include('frontend.slider.feature_categories.type1')
@@ -76,7 +83,8 @@
                 </div>
             </div>
     </section>
-
+   @endif
+</main>
     
 
     @yield('content')
