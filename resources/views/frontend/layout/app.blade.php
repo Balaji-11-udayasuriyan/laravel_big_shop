@@ -57,6 +57,12 @@
 
                      <!-- Include the trending products partial -->
                      @include('frontend.slider.trending_products.type1')
+
+                     
+
+                     <!-- Include the top rated  slider partial -->
+                     @include('frontend.slider.top_rated.type1')
+
                 </div>
             </div>
     </section>
