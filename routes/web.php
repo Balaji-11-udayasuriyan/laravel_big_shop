@@ -26,6 +26,8 @@ Route::get('/category', [AuthController::class, 'category'])->name('home.categor
 use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
+Route::get('/login',[HomeController::class,'login'])->name('home.login');
+
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
 

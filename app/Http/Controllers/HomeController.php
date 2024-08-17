@@ -65,4 +65,9 @@ class HomeController extends Controller
 
         return "Email sent successfully!";
     }
+
+    public function login()
+    {
+        return view('frontend/auth/login');
+    }
 }
