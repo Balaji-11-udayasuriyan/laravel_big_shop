@@ -28,6 +28,8 @@ Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
 Route::get('/login',[HomeController::class,'login'])->name('home.login');
 
+Route::get('/register',[HomeController::class,'register'])->name('home.register');
+
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
 
