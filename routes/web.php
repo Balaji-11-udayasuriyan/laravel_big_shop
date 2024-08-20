@@ -7,6 +7,8 @@ Route::get('/', function () {
 
 });
 
+//--------------------------------------------------------------------------------------------------------------------------//
+
 use App\Http\Controllers\AuthController;
 
 Route::get('/login',[AuthController::class, 'login'])->name('home.login');
@@ -14,6 +16,8 @@ Route::get('/login',[AuthController::class, 'login'])->name('home.login');
 Route::get('/register',[AuthController::class, 'register'])->name('home.register');
 
 Route::get('/forgetpassword',[AuthController::class, 'forget_password'])->name('home.forget_password');
+
+Route::get('/resetpassword',[AuthController::class, 'reset_password'])->name('home.reset_password');
 
 
 //---------------------------------------------------------------------------------------------------------------------//
@@ -24,6 +28,8 @@ Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 use App\Http\Controllers\CartController;
 
