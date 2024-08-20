@@ -34,7 +34,7 @@
 
     <main class="main">
 
-        @if(Request::is('login')||Request::is('register')||Request::is('resetpassword'))
+        @if(Request::is('login')||Request::is('register')||Request::is('resetpassword')||Request::is('myaccount'))
 
             @yield('content')
 

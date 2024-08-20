@@ -19,6 +19,8 @@ Route::get('/forgetpassword',[AuthController::class, 'forget_password'])->name('
 
 Route::get('/resetpassword',[AuthController::class, 'reset_password'])->name('home.reset_password');
 
+Route::get('/myaccount',[AuthController::class, 'my_account'])->name('home.my_account');
+
 
 //---------------------------------------------------------------------------------------------------------------------//
 
