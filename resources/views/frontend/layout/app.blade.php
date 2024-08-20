@@ -34,13 +34,12 @@
 
     <main class="main">
 
-        @if(Request::is('login')||Request::is('register')||Request::is('resetpassword')||Request::is('myaccount'))
+        @if(Request::is('login')||Request::is('register')||Request::is('resetpassword')||Request::is('myaccount')||Request::is('privacypolicy'))
 
             @yield('content')
 
         @elseif(Request::is('/'))
 
-    
     
             <!-- Include the slider partial -->
             @include('frontend.slider.type1')
