@@ -25,6 +25,8 @@ Route::get('/privacypolicy',[AuthController::class, 'privacy_policy'])->name('ho
 
 Route::get('/terms',[AuthController::class, 'terms'])->name('home.terms');
 
+Route::get('/page404',[AuthController::class, 'error'])->name('home.error');
+
 
 //---------------------------------------------------------------------------------------------------------------------//
 
