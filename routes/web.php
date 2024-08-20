@@ -10,25 +10,17 @@ Route::get('/', function () {
 use App\Http\Controllers\AuthController;
 
 Route::get('/login',[AuthController::class, 'login'])->name('home.login');
-Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
-// Route::get('/cart', [AuthController::class, 'cart'])->name('home.cart');
-Route::get('/profile',[AuthController::class, 'profile'])->name('home.profile');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/register',[AuthController::class, 'register'])->name('home.register');
-Route::post('/store', [AuthController::class, 'store'])->name('home.store');
-Route::get('/forget_password',[AuthController::class, 'forget_password'])->name('home.forget_password');
-Route::get('/order', [AuthController::class, 'order'])->name('home.order');
-Route::get('/role', [AuthController::class, 'role'])->name('home.role');
-Route::get('/category', [AuthController::class, 'category'])->name('home.category');
+
+Route::get('/forgetpassword',[AuthController::class, 'forget_password'])->name('home.forget_password');
+
 
 //---------------------------------------------------------------------------------------------------------------------//
 
 use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
-Route::get('/login',[HomeController::class,'login'])->name('home.login');
-
-Route::get('/register',[HomeController::class,'register'])->name('home.register');
 
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');

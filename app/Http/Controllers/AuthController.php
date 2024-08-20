@@ -20,12 +20,12 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        return view('frontend/register');
+        return view('frontend/auth/register');
     }
 
     public function forget_password(Request $request)
     {
-        return view('frontend/forget_password');
+        return view('frontend/auth/forget_password');
     }
 
 }
