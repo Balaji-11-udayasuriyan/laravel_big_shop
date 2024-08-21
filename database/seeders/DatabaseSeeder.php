@@ -8,10 +8,6 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\SubCategory;
-use App\Models\Brand;
-
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -39,18 +35,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('krishna'),
         ]);
 
-        $brands=[
-            ['name'=>'layse'],
-            ['name'=>'apple'],
-            ['name'=>'masaa'],
-            ['name'=>'sprite'],
-            ['name'=>'msi'],
-            ['name'=>'hp']
-        ];
-
-        foreach ($brands as $row) {
-            Brand::create($row);
-        }
 
         $this->call([
 
