@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CompanySeeder::class,
             // CollectionSeeder::class,
-            // BrandSeeder::class,
+            BrandSeeder::class,
             CategorySeeder::class,
             SubCategorySeeder::class,
 
