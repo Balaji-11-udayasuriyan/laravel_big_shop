@@ -11,7 +11,7 @@ class State extends Model
 {
     use HasFactory;
 
-    protected $table='states';
+    protected $table = 'states';
 
     protected $fillable=[
 
@@ -22,6 +22,6 @@ class State extends Model
 
     public function country()
     {
-        return this->belongsTo(Country::class, 'country_id');
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }
