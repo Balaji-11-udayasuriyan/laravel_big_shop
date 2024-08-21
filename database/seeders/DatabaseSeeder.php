@@ -386,8 +386,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
 
             CountrySeeder::class,
-            // StateSeeder::class,
-            // CitySeeder::class,
+            StateSeeder::class,
+            CitySeeder::class,
             // LabelSeeder::class,
             // TagSeeder::class,
             // CompanySeeder::class,
