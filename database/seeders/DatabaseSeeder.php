@@ -8,11 +8,6 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\Label;
-use App\Models\Tag;
-
-use App\Models\Company;
-use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Brand;
 
@@ -55,27 +50,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($brands as $row) {
             Brand::create($row);
-        }
-
-        $categories = [
-            ['name' => 'Fresh Produce'],
-            ['name' => 'Dairy and Eggs'],
-            ['name' => 'Meat and Seafood'],
-            ['name' => 'Bakery'],
-            ['name' => 'Pantry Staples'],
-            ['name' => 'Beverages'],
-            ['name' => 'Frozen Foods'],
-            ['name' => 'Snacks'],
-            ['name' => 'Health and Wellness'],
-            ['name' => 'Household Supplies'],
-            ['name' => 'Personal Care'],
-            ['name' => 'Baby Products'],
-            ['name' => 'Pet Supplies'],
-            ['name' => 'International Foods'],
-        ];
-
-        foreach ($categories as $row) {
-            Category::create($row);
         }
 
         $sub_categories = [
