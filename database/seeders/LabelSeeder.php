@@ -1,0 +1,36 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class LabelSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        
+        $labels=[
+            [
+                'name'=>'Hot',
+                'color'=> '#e74c3c'
+            ],
+            [
+                'name'=>'New',
+                'color'=> '#2ecc71'
+            ],
+            [
+                'name'=>'Sale',
+                'color'=> '#8e44ad'
+            ]
+        ];
+
+        foreach ($labels as $row){
+            Label::create($row);
+        }
+
+    }
+}

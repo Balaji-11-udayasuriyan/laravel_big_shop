@@ -44,25 +44,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('krishna'),
         ]);
 
-        $labels=[
-            [
-                'name'=>'Hot',
-                'color'=> '#e74c3c'
-            ],
-            [
-                'name'=>'New',
-                'color'=> '#2ecc71'
-            ],
-            [
-                'name'=>'Sale',
-                'color'=> '#8e44ad'
-            ]
-        ];
-
-        foreach ($labels as $row){
-            Label::create($row);
-        }
-
         $tags = [
             [
                 'name' => 'Hand bag'
