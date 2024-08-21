@@ -44,32 +44,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('krishna'),
         ]);
 
-        $tags = [
-            [
-                'name' => 'Hand bag'
-            ],
-
-            [
-                'name' => 'Clothes'
-            ],
-
-            [
-                'name' => 'Shoes'
-            ],
-            [
-                'name' => 'Bags'
-            ],
-
-            [
-                'name' => 'Wallet'
-            ],
-        ];
-
-        foreach ($tags  as $row) {
-            Tag::create($row);
-        }
-
-
         $brands=[
             ['name'=>'layse'],
             ['name'=>'apple'],
@@ -369,7 +343,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             StateSeeder::class,
             CitySeeder::class,
-            // LabelSeeder::class,
+            LabelSeeder::class,
             // TagSeeder::class,
             // CompanySeeder::class,
             // CollectionSeeder::class,
