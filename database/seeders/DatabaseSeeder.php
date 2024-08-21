@@ -57,24 +57,6 @@ class DatabaseSeeder extends Seeder
             Brand::create($row);
         }
 
-
-        $companies = [
-            [
-                'name' => 'Sri Abirami Stores',
-                'user_id' => 2
-            ],
-            [
-                'name' => 'Krishna Stores',
-                'user_id' => 3
-            ],
-        ];
-
-        foreach ($companies as $row) {
-            Company::create($row);
-        }
-
-
-
         $categories = [
             ['name' => 'Fresh Produce'],
             ['name' => 'Dairy and Eggs'],
