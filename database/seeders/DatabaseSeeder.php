@@ -383,5 +383,23 @@ class DatabaseSeeder extends Seeder
             SubCategory::create($row);
         }
 
+        $this->call([
+
+            CountrySeeder::class,
+            // StateSeeder::class,
+            // CitySeeder::class,
+            // LabelSeeder::class,
+            // TagSeeder::class,
+            // CompanySeeder::class,
+            // CollectionSeeder::class,
+            // BrandSeeder::class,
+            // CategorySeeder::class,
+            // SubCategorySeeder::class,
+
+        ]);
+
+
     }
+
+
 }
