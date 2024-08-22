@@ -19,8 +19,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('home.logout');
 
 Route::get('/register',[AuthController::class, 'register'])->name('home.register');
 
-
 Route::get('/forgetpassword',[AuthController::class, 'forget_password'])->name('home.forget_password');
+
+Route::get('/register', [AuthController::class,'register'])->name('register');
 
 Route::get('/resetpassword',[AuthController::class, 'reset_password'])->name('home.reset_password');
 
@@ -30,7 +31,7 @@ Route::get('/privacypolicy',[AuthController::class, 'privacy_policy'])->name('ho
 
 Route::get('/terms',[AuthController::class, 'terms'])->name('home.terms');
 
-Route::get('/page404',[AuthController::class, 'error'])->name('home.error');
+
 
 
 //---------------------------------------------------------------------------------------------------------------------//
@@ -95,3 +96,6 @@ use App\Http\Controllers\InvoiceController;
     Route::get('/invoice/stream-pdf/{id}', [InvoiceController::class, 'streamInvoicePdf'])->name('invoice.stream-pdf');
     Route::get('/invoice/send-email/{id}', [InvoiceController::class, 'sendInvoiceEmail'])->name('invoice.send-email');
 
+
+// Fallback route for 404
+Route::get('{any}', [AuthController::class, 'page_not_found'])->where('any', '.*');
