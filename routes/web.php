@@ -13,7 +13,10 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/login',[AuthController::class, 'login'])->name('home.login');
 
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
 Route::get('/register',[AuthController::class, 'register'])->name('home.register');
+
 
 Route::get('/forgetpassword',[AuthController::class, 'forget_password'])->name('home.forget_password');
 
@@ -31,7 +34,7 @@ Route::get('/page404',[AuthController::class, 'error'])->name('home.error');
 //---------------------------------------------------------------------------------------------------------------------//
 
 use App\Http\Controllers\HomeController;
-Route::get('/',[HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 // Product detail page
