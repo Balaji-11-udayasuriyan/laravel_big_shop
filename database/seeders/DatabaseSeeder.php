@@ -8,6 +8,9 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
 
+use Spatie\Permission\Models\Role;
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -35,6 +38,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('krishna'),
         ]);
 
+
+        Role::create(['name' => 'Customer']);
 
         $this->call([
 

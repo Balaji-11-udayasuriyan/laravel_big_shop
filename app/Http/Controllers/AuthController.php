@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 use App\Models\User;
+use App\Models\City;
+use App\Models\Category;
+
 use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
