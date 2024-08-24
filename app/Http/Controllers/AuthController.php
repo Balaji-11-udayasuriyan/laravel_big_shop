@@ -174,6 +174,8 @@ class AuthController extends Controller
         return view('frontend/error/page_not_found');
     }
 
+    // static is used to call function without using object 
+     
     public static function sendRegisterMail(Request $request)
     {
         $request->validate([
