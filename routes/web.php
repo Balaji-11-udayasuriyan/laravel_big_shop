@@ -41,6 +41,8 @@ Route::get('{any}', [AuthController::class, 'error'])->where('any', '.*');
 use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
+Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
+
 
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
