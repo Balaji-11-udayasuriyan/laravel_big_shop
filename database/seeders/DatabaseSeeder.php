@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             SubCategorySeeder::class,
+            ProductSeeder::class,
 
         ]);
 
