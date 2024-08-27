@@ -75,6 +75,8 @@ Route::post('/cart/clear', [CartController::class, 'clearCart'])->name('cart.cle
 
 Route::get('/sendEmailManually',[HomeController::class, 'sendEmailManually'])->name('home.sendEmailManually');
 
+//-------------------------------------------------------------------------------------------------------------------
+
 use App\Http\Controllers\OrderController;
 
 Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
@@ -91,7 +93,7 @@ Route::get('order/history/{id}', [OrderController::class, 'order_history'])->nam
 // Order show Route
 Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
 
-
+//-------------------------------------------------------------------------------------------------------------------------
 
 
 use App\Http\Controllers\InvoiceController;

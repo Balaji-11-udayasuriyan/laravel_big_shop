@@ -52,6 +52,12 @@
 
             @yield('content')
 
+        @elseif (
+            request()->query('category')
+        )    
+        
+        @yield('content')
+
         @elseif(Request::is('/'))
 
     
