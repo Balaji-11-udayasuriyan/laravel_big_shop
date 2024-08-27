@@ -45,7 +45,8 @@
             Request::is('terms') || 
             Request::is('error') ||
             Request::is('purchase_guide') ||
-            Request::is('about')
+            Request::is('about') ||
+            Request::routeIs('product.show')
 
             )
 

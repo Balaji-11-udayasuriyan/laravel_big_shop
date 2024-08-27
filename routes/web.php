@@ -33,7 +33,9 @@ Route::get('/privacypolicy',[AuthController::class, 'privacy_policy'])->name('ho
 
 Route::get('/terms',[AuthController::class, 'terms'])->name('home.terms');
 
+//Register email 
 
+Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
 
 
 //---------------------------------------------------------------------------------------------------------------------//
@@ -41,10 +43,7 @@ Route::get('/terms',[AuthController::class, 'terms'])->name('home.terms');
 use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
-
 Route::get('/about', [HomeController::class, 'about'])->name('home.about');
-
 
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
