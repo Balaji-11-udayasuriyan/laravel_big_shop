@@ -43,10 +43,11 @@ Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
 use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/about', [HomeController::class, 'about'])->name('home.about');
-
 // Product detail page
 Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
+
+Route::get('/about', [HomeController::class, 'about'])->name('home.about');
+
 
 //--------------------------------------------------------------------------------------------------------------------//
 
