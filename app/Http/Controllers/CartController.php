@@ -11,21 +11,39 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    //
+    // 
     public function index(Request $request)
     {
         try 
         {
+            $countries = Country::all();
+            // Retrieve all cities for use in the view
+            $cities = City::all();
+
+            // Retrieve all categories for use in the view
+            $categories = Category::all();
+
             $customer = Auth::user();
 
             $carts = Cart::where('customer_id', $customer->id)->get();
 
-            return view('frontend.cart', compact('carts'));
+            $cart_grand_total = Cart::grandTotal($customer->id);
+
+            $data = [
+                'carts' => $carts,
+                'cart_grand_total' => $cart_grand_total,
+                'categories' => $categories,
+                'countries' => $countries,
+                'cities' => $cities,
+            ];
+
+            return view('frontend.cart.index', $data);
         } catch (ModelNotFoundException $e) {
             // Handle the case where the product is not found
             return redirect()->route('products.index')->with('error', 'Product not found.');
         }
     }
+
 
     public function add_to_cart(Request $request)
     {
@@ -34,7 +52,10 @@ class CartController extends Controller
         $customer_id = $user->id;
 
         $product_id = $request->input('product_id');
+
         $qty = $request->input('qty', 1);
+
+        // dd($request);
 
         // Retrieve the product
         $product = Product::find($product_id);
@@ -60,17 +81,19 @@ class CartController extends Controller
             Cart::create([
                 'product_id' => $product_id,
                 'customer_id' => $user->id,
-                'qty' => 1,
+                'qty' => $qty,
             ]);
             
             return redirect()->back()->with('success', $product->name . " added to your cart." );
         }
+
     }
 
     public function increaseQuantity(Request $request, $id)
     {
         // Get the authenticated user
         $user = Auth::user();
+
         $customer_id = $user->id;
 
         // Retrieve the cart item
@@ -170,8 +193,5 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Cart cleared successfully.');
     }
-
-    
-
 
 }
