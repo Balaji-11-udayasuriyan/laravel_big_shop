@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+
+use App\Models\Country;
+use App\Models\City;
+use App\Models\Category;
 use App\Models\Cart;
 use App\Models\Product;
 
