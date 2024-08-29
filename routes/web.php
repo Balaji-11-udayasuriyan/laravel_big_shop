@@ -74,8 +74,6 @@ Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('ca
 // Clear cart route
 Route::post('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
 
-Route::get('/sendEmailManually',[HomeController::class, 'sendEmailManually'])->name('home.sendEmailManually');
-
 //-------------------------------------------------------------------------------------------------------------------
 
 use App\Http\Controllers\OrderController;
