@@ -6,16 +6,17 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-
-use App\Models\Country;
-use App\Models\City;
-use App\Models\Category;
 use App\Models\Cart;
 use App\Models\Product;
 
+use App\Models\Category;
+
+use App\Models\Country;
+use App\Models\City;
+
 class CartController extends Controller
 {
-    // 
+    //
     public function index(Request $request)
     {
         try 
@@ -39,7 +40,7 @@ class CartController extends Controller
                 'categories' => $categories,
                 'countries' => $countries,
                 'cities' => $cities,
-            ];
+             ];
 
             return view('frontend.cart.index', $data);
         } catch (ModelNotFoundException $e) {
@@ -48,7 +49,6 @@ class CartController extends Controller
         }
     }
 
-
     public function add_to_cart(Request $request)
     {
         $user = Auth::user();
@@ -56,7 +56,6 @@ class CartController extends Controller
         $customer_id = $user->id;
 
         $product_id = $request->input('product_id');
-
         $qty = $request->input('qty', 1);
 
         // dd($request);
@@ -90,14 +89,12 @@ class CartController extends Controller
             
             return redirect()->back()->with('success', $product->name . " added to your cart." );
         }
-
     }
 
     public function increaseQuantity(Request $request, $id)
     {
         // Get the authenticated user
         $user = Auth::user();
-
         $customer_id = $user->id;
 
         // Retrieve the cart item
@@ -197,5 +194,8 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Cart cleared successfully.');
     }
+
+    
+
 
 }
