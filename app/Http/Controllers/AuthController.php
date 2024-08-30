@@ -211,4 +211,24 @@ class AuthController extends Controller
             'message' => 'Registration email sent successfully!'
         ], 200);
     }
+
+
+    public function wishlist(Request $request)
+    {
+
+        // dd($request);
+        // Retrieve all cities for use in the view
+        $cities = City::all();
+
+        // Retrieve all categories for use in the view
+        $categories = Category::all();
+
+
+        // Initialize data array
+        $data = [
+            'categories' => $categories,
+            'cities' => $cities,
+         ];
+        return view('frontend/auth/wishlist',$data);
+    }
 }

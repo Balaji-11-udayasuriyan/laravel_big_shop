@@ -15,7 +15,7 @@ Route::get('/login',[AuthController::class, 'login'])->name('home.login');
 
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('home.logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/register',[AuthController::class, 'register'])->name('home.register');
 
@@ -36,6 +36,9 @@ Route::get('/terms',[AuthController::class, 'terms'])->name('home.terms');
 //Register email 
 
 Route::post('/send-register-mail', [AuthController::class, 'sendRegisterMail']);
+
+//wishlist
+Route::get('/wishlist', [AuthController::class, 'wishlist'])->name('home.wishlist');
 
 
 //---------------------------------------------------------------------------------------------------------------------//
@@ -80,6 +83,9 @@ use App\Http\Controllers\OrderController;
 
 Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
 
+// Order Confirmation Route place order
+Route::post('place_an_order', [OrderController::class, 'place_an_order'])->name('order.place_an_order');
+
 // Checkout Route
 Route::post('checkout', [OrderController::class, 'checkout'])->name('checkout');
 
@@ -88,6 +94,7 @@ Route::get('order/confirmation/{order}', [OrderController::class, 'confirmation'
 
 // Order history Route
 Route::get('order/history/{id}', [OrderController::class, 'order_history'])->name('order.history');
+
 
 // Order show Route
 Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');

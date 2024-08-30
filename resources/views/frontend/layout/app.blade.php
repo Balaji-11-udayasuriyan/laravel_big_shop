@@ -41,13 +41,18 @@
             Request::is('forgetpassword') || 
             Request::is('resetpassword') || 
             Request::is('myaccount') || 
+            Request::is('wishlist') ||
             Request::is('privacypolicy') || 
             Request::is('terms') || 
             Request::is('error') ||
             Request::is('purchase_guide') ||
             Request::is('about') ||
             Request::routeIs('product.show') ||
-            Request::routeIs('cart.index')
+            Request::routeIs('cart.index') ||
+            Request::is('checkout') ||
+            Request::routeIs('order.place_an_order') ||
+            Request::routeIs('order.confirmation') ||
+            Request::routeIs('invoice.show') 
 
             )
 
