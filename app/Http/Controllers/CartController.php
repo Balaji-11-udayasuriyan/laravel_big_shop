@@ -48,7 +48,8 @@ class CartController extends Controller
             return redirect()->route('products.index')->with('error', 'Product not found.');
         }
     }
-
+ 
+    
     public function add_to_cart(Request $request)
     {
         $user = Auth::user();
