@@ -11,6 +11,10 @@ use App\Models\Order;
 use App\Models\Cart;
 use App\Models\OrderHistory;
 
+use App\Models\Category;
+
+use App\Models\City;
+
 use App\Enums\OrderStatus;
 
 class OrderController extends Controller
@@ -37,8 +41,37 @@ class OrderController extends Controller
 
         return view('frontend/order_details',compact('order'));
     }
-    
+
     public function checkout(Request $request)
+    {
+
+        // dd($request);
+
+        $user = Auth::user();
+
+        // Retrieve all cities for use in the view
+        $cities = City::all();
+
+        // Retrieve all categories for use in the view
+        $categories = Category::all();
+        
+        $data = [
+            // 'product' => $query->get(),
+            'categories' => $categories,
+            'cities' => $cities,
+         ];
+        
+
+        $cart = Cart::where('customer_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->first();
+
+        // dd($order);
+
+        return view('frontend/order/checkout',$data);
+    }
+    
+    public function place_an_order(Request $request)
     {
         $user = Auth::user();
 
@@ -71,6 +104,7 @@ class OrderController extends Controller
                     'product_id' => $row->product_id,
                     'qty' => $row->qty,
                     'unit_price' => $row->product->price,
+                    'discount' => 0,
                     'amount' => $row->qty * $row->product->price
                 ]);
             }
@@ -82,8 +116,9 @@ class OrderController extends Controller
             DB::commit();
 
             // Redirect to payment gateway or order confirmation
-            return redirect()->route('order.confirmation', ['order' => $order->id])
-                            ->with('success', 'Order placed successfully.');
+            return redirect()->route('order.confirmation', $order->id)
+                ->with('success', 'Order placed successfully.');
+
         } catch (\Exception $e) {
             // Rollback transaction in case of error
             DB::rollback();
@@ -97,11 +132,25 @@ class OrderController extends Controller
     {
         $user = Auth::user();
 
-        $order = Order::where('customer_id', $user->id)->first();
+        $order = Order::where('customer_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->first();
 
         // dd($order);
 
-        return view('frontend/order_confirmation', compact('order'));
+        // Retrieve all cities for use in the view
+        $cities = City::all();
+
+        // Retrieve all categories for use in the view
+        $categories = Category::all();
+
+        $data = [
+            'order' => $order,
+            'categories' => $categories,
+            'cities' => $cities,
+         ];
+
+        return view('frontend/order/confirmation', $data);
     }
 
     public function order_history($id)
