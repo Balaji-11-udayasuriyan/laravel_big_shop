@@ -10,7 +10,7 @@
                         <ul>
                             <li><a href="{{ route('home.about') }}">About Us</a></li>
                             <li><a href="{{ route('home.my_account') }}">My Account</a></li>
-                            <li><a href="{{ route('home.my_account') }}">Wishlist</a></li>
+                            <li><a href="{{ route('home.wishlist') }}">Wishlist</a></li>
                             <li><a href="shop-order.html">Order Tracking</a></li>
                         </ul>
                     </div>
@@ -72,17 +72,17 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form method="GET" action="{{ route('home.index') }}">
-                            <select class="select-active" name="category">
-                                <option value="All" {{ request()->input('category') == 'All' ? 'selected' : '' }}>All Categories</option> 
+                    <form method="GET" action="{{ route('home.index') }}">
+                        <select class="select-active" name="category">
+                            <option value="All" {{ request()->input('category') == 'All' ? 'selected' : '' }}>All Categories</option> 
                                 @foreach($categories as $row)
-                                    <option value="{{ $row->id }}" {{ request()->input('row') == $row->name ? 'selected' : '' }}>
+                                    <option value="{{ $row->id }}" {{ request()->input('category') == $row->id ? 'selected' : '' }}>
                                         {{ $row->name }}
                                     </option>
                                 @endforeach
-                            </select>
-                            <input type="text" placeholder="Search for items..." />
-                        </form>
+                        </select>
+                    <input type="text" name="search" placeholder="Search for items..." />
+                    </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
@@ -106,15 +106,15 @@
                                 <a href="shop-compare.html"><span class="lable ml-0">Compare</span></a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a href="{{ route('home.my_account') }}">
+                                <a href="{{ route('home.wishlist') }}">
                                     <img class="svgInject" alt="Nest" src="{{ asset('frontend/imgs/theme/icons/icon-heart.svg') }}" />
                                     <span class="pro-count blue">6</span>
                                 </a>
-                                <a href="{{ route('home.my_account') }}"><span class="lable">Wishlist</span></a>
+                                <a href="{{ route('home.wishlist') }}"><span class="lable">Wishlist</span></a>
                             </div>
                             @if (Auth::check())
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                <a class="mini-cart-icon" href="{{route (cart) }}">
                                     <img alt="Nest" src="{{ asset('frontend/imgs/theme/icons/icon-cart.svg') }}" />
                                     <span class="pro-count blue">{{ Auth::user()->cartItems()->count() }}</span>
                                 </a>
@@ -177,7 +177,7 @@
                                             <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('home.my_account') }}"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
+                                            <a href="{{ route('home.wishlist') }}"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
                                         </li>
                                         <li>
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
@@ -489,8 +489,8 @@
                                         <h4>Total <span>$383.00</span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
-                                        <a href="shop-cart.html">View cart</a>
-                                        <a href="shop-checkout.html">Checkout</a>
+                                        <a href="{{ route ('cart') }}">View cart</a>
+                                        <a href="{{ route ('checkout') }}">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -556,7 +556,7 @@
                                 <li><a href="shop-filter.html">Shop – Filter</a></li>
                                 <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
                                 <li><a href="shop-cart.html">Shop – Cart</a></li>
-                                <li><a href="shop-checkout.html">Shop – Checkout</a></li>
+                                <li><a href="{{ route ('checkout')}}">Shop – Checkout</a></li>
                                 <li><a href="shop-compare.html">Shop – Compare</a></li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Shop Invoice</a>
