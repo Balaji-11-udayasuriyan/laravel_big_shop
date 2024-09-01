@@ -72,17 +72,17 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                    <form method="GET" action="{{ route('home.index') }}">
-                        <select class="select-active" name="category">
-                            <option value="All" {{ request()->input('category') == 'All' ? 'selected' : '' }}>All Categories</option> 
+                        <form method="GET" action="{{ route('home.index') }}">
+                            <select class="select-active" name="category">
+                                <option value="All" {{ request()->input('category') == 'All' ? 'selected' : '' }}>All Categories</option> 
                                 @foreach($categories as $row)
-                                    <option value="{{ $row->id }}" {{ request()->input('category') == $row->id ? 'selected' : '' }}>
+                                    <option value="{{ $row->id }}" {{ request()->input('row') == $row->name ? 'selected' : '' }}>
                                         {{ $row->name }}
                                     </option>
                                 @endforeach
-                        </select>
-                    <input type="text" name="search" placeholder="Search for items..." />
-                    </form>
+                            </select>
+                            <input type="text" placeholder="Search for items..." />
+                        </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
@@ -114,7 +114,7 @@
                             </div>
                             @if (Auth::check())
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="{{route ('cart.index') }}">
+                                <a class="mini-cart-icon" href="shop-cart.html">
                                     <img alt="Nest" src="{{ asset('frontend/imgs/theme/icons/icon-cart.svg') }}" />
                                     <span class="pro-count blue">{{ Auth::user()->cartItems()->count() }}</span>
                                 </a>
@@ -304,7 +304,7 @@
                                         </li>
                                         <li><a href="shop-filter.html">Shop – Filter</a></li>
                                         <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
-                                        <li><a href="{{ route ('cart.index') }}">Shop – Cart</a></li>
+                                        <li><a href="shop-cart.html">Shop – Cart</a></li>
                                         <li><a href="shop-checkout.html">Shop – Checkout</a></li>
                                         <li><a href="shop-compare.html">Shop – Compare</a></li>
                                         <li>
@@ -489,8 +489,8 @@
                                         <h4>Total <span>$383.00</span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
-                                        <a href="{{ route ('cart.index') }}">View cart</a>
-                                        <a href="{{ route ('checkout') }}">Checkout</a>
+                                        <a href="shop-cart.html">View cart</a>
+                                        <a href="shop-checkout.html">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -556,7 +556,7 @@
                                 <li><a href="shop-filter.html">Shop – Filter</a></li>
                                 <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
                                 <li><a href="shop-cart.html">Shop – Cart</a></li>
-                                <li><a href="{{ route ('checkout')}}">Shop – Checkout</a></li>
+                                <li><a href="shop-checkout.html">Shop – Checkout</a></li>
                                 <li><a href="shop-compare.html">Shop – Compare</a></li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Shop Invoice</a>
